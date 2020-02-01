@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     public Animator animator;
     private int _animatorSpeed = Animator.StringToHash("Speed");
+    private int _animatorRepair = Animator.StringToHash("Repair");
+    private int _animatorRepairingHold = Animator.StringToHash("Repairing");
     private int _carryingLayer;
     
     public PlayerAttributes Attributes;
@@ -58,10 +60,10 @@ public class Player : MonoBehaviour
 
     public void OnBTNGFX()
     {
-        Debug.Log("GFX");
         if (CheckIfRepair())
         {
             desk.Repair(Desk.RepairType.Smash);
+            animator.SetTrigger(_animatorRepair);
         }
         else
         {
@@ -71,10 +73,10 @@ public class Player : MonoBehaviour
 
     public void OnBTNCPU()
     {
-        Debug.Log("CPU");
         if (CheckIfRepair())
         {
             desk.Repair(Desk.RepairType.Smash);
+            animator.SetTrigger(_animatorRepair);
         }
         else
         {
@@ -84,10 +86,10 @@ public class Player : MonoBehaviour
 
     public void OnBTNHDD()
     {
-        Debug.Log("HDD");
         if (CheckIfRepair())
         {
             desk.Repair(Desk.RepairType.Hold);
+            animator.SetTrigger(_animatorRepair);
         }
         else
         {
@@ -97,10 +99,10 @@ public class Player : MonoBehaviour
 
     public void OnBTNPS()
     {
-        Debug.Log("PS");
         if (CheckIfRepair())
         {
             desk.Repair(Desk.RepairType.Hold);
+            animator.SetTrigger(_animatorRepair);
         }
         else
         {
