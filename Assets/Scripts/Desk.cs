@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class Desk : MonoBehaviour
 {
+    public bool PieceBroken => _pieceContainer.PieceBroken;
+    
     private PieceContainer _pieceContainer;
     
     
-    public bool CanReceivePiece(PieceType pieceType)
+    public bool CanReceivePiece(PieceType pieceType, bool broken)
     {
-        if (!_pieceContainer.HasPiece && _pieceContainer.AllowedPieceTypes.Contains(pieceType))
-        {
-            return true;
-        }
-        return false;
+        return !_pieceContainer.HasPiece && _pieceContainer.AllowedPieceTypes.Contains(pieceType) &&  broken;
     }
     
-    public bool CanGivePiece(PieceType pieceType)
+    public bool CanGivePiece(PieceType pieceType, bool broken)
     {
-        if (_pieceContainer.HasPiece && _pieceContainer.PieceType == pieceType)
-        {
-            return true;
-        }
-        return false;
+        return _pieceContainer.HasPiece && _pieceContainer.PieceType == pieceType && !broken;
     }
     public void AddPiece(Piece piece)
     {
