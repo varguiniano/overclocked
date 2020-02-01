@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f83777afe3ad10447afde45dac18c264
+guid: 9fa778f8463f55d4c82aa06c3f5f6261
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: GPU
-    second: {fileID: 2100000, guid: 3499d147fe5bb5d499e22abb3d07baee, type: 2}
+      name: CPU
+    second: {fileID: 2100000, guid: 2cfbb997b235dbf42960abea0d708b42, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
