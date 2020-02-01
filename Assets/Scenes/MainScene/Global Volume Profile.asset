@@ -49,15 +49,15 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 0.88
+    m_Value: 0.76
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 2.7
+    m_Value: 13.9
     min: 0
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.7
+    m_OverrideState: 1
+    m_Value: 0.42
     min: 0
     max: 1
   clamp:
@@ -71,8 +71,8 @@ MonoBehaviour:
     showAlpha: 0
     showEyeDropper: 1
   highQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -99,11 +99,11 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 19.91
+    m_Value: 22.46
     min: 0
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 23.97
+    m_Value: 22.5
     min: 0
   gaussianMaxRadius:
     m_OverrideState: 0
