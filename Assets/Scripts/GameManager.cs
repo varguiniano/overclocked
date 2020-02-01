@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class GameManager : Singleton<GameManager>
 {
-    [Range(0, 10)] [SerializeField] private int _stars = 6;
+    [Range(0, 10)] [SerializeField] private int _stars = 10;
 
     public float ElapsedSeconds;
 

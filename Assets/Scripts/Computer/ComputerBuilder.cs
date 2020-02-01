@@ -14,6 +14,7 @@ public class ComputerBuilder : ScriptableObject
         Computer computer = ComputerManager.InstantiatePrefab(size);
         if (computer != null)
         {
+            bool pieceAdded = false;
             for (int i = 0; i < descriptor.CPUS; i++)
             {
                 PieceContainer container = computer.gameObject.AddComponent<PieceContainer>();
@@ -23,6 +24,7 @@ public class ComputerBuilder : ScriptableObject
                 container.disablePiece = true;
                 container.AddPiece(piece);
                 computer.PieceContainers.Add(container);
+                pieceAdded = true;
             }
             for (int i = 0; i < descriptor.GTX; i++)
             {
@@ -33,6 +35,7 @@ public class ComputerBuilder : ScriptableObject
                 container.disablePiece = true;
                 container.AddPiece(piece);
                 computer.PieceContainers.Add(container);
+                pieceAdded = true;
             }
             for (int i = 0; i < descriptor.HDD; i++)
             {
@@ -43,8 +46,21 @@ public class ComputerBuilder : ScriptableObject
                 container.disablePiece = true;
                 container.AddPiece(piece);
                 computer.PieceContainers.Add(container);
+                pieceAdded = true;
             }
             for (int i = 0; i < descriptor.PS; i++)
+            {
+                PieceContainer container = computer.gameObject.AddComponent<PieceContainer>();
+                container.AllowedPieceTypes.Add(PieceManager.PS);
+                Piece piece = PieceManager.InstantiatePiece(PieceManager.PS);
+                piece.Health = 0;
+                container.disablePiece = true;
+                container.AddPiece(piece);
+                computer.PieceContainers.Add(container);
+                pieceAdded = true;
+            }
+
+            if (!pieceAdded)
             {
                 PieceContainer container = computer.gameObject.AddComponent<PieceContainer>();
                 container.AllowedPieceTypes.Add(PieceManager.PS);
