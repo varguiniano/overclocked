@@ -46,6 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2092f2159e961094ea07022ec19035c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Spawner: {fileID: 2641892659677667175}
+  Goal: {fileID: 3783018308114258546}
+  PieceManager: {fileID: 11400000, guid: 8e2284a9d329628409b2fdcb2d08856e, type: 2}
+  ComputerBuilder: {fileID: 11400000, guid: b5cb6a786d70c364eb5056b260a08a5e, type: 2}
+  ComputerManager: {fileID: 11400000, guid: 8ae3abef39ecd9148b90b6cd9baa7b86, type: 2}
+  OnComputerGoal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2641892659677667175
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,6 +111,7 @@ GameObject:
   - component: {fileID: 2641892659870554676}
   - component: {fileID: 2641892659870554679}
   - component: {fileID: 2641892659870554678}
+  - component: {fileID: 7149886066325560821}
   m_Layer: 0
   m_Name: Conveyor
   m_TagString: Untagged
@@ -400,6 +409,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &7149886066325560821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2641892659870554681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f267a1f3e86a948409b1a64d5c24e642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conveyorMaterial: {fileID: 2100000, guid: e7d9b99b0e6adc44aa622e94e6511d3e, type: 2}
+  Speed: {fileID: 11400000, guid: d11282558f7889d4284a60bbaf7b207d, type: 2}
+  SpeedMultiplier: 0.55
 --- !u!1 &2641892659968585277
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +434,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2641892659968585274}
   - component: {fileID: 2641892659968585275}
+  - component: {fileID: 3783018308114258546}
+  - component: {fileID: 3399868808325668930}
   m_Layer: 0
   m_Name: ComputerGoal
   m_TagString: Untagged
@@ -444,3 +470,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3783018308114258546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2641892659968585277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264d3c44aa4d5294fa49ee7b2bba6aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnComputerGoal:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!54 &3399868808325668930
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2641892659968585277}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

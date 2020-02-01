@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 443f71a34a255484898ad346c5a28169, type: 3}
-  m_Name: ConveyorSpeed
+  m_Script: {fileID: 11500000, guid: 39e156edbd093444d9500eed3aff8795, type: 3}
+  m_Name: ComputerBuilder
   m_EditorClassIdentifier: 
-  Value: 3
+  PieceManager: {fileID: 11400000, guid: 8e2284a9d329628409b2fdcb2d08856e, type: 2}
+  ComputerManager: {fileID: 11400000, guid: 8ae3abef39ecd9148b90b6cd9baa7b86, type: 2}

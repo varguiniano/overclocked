@@ -8,6 +8,7 @@ public class Computer : MonoBehaviour
     public PieceManager PieceManager;
     public List<PieceContainer> PieceContainers = new List<PieceContainer>();
     public ComputerUI ui;
+    public ComputerSizeType Size;
 
     [Header("GlobalVariables")]
     public ConveyorSpeed ConveyorSpeed;
