@@ -27,7 +27,7 @@
                     "id": "4e399b12-c48a-4453-ae2c-76cbc189ad14",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Tap,Hold"
                 },
                 {
                     "name": "BTNCPU",
@@ -35,7 +35,7 @@
                     "id": "c2e69755-ef65-4b1c-b861-d243e1ae7d20",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Tap,Hold"
                 },
                 {
                     "name": "BTNHDD",
@@ -43,7 +43,7 @@
                     "id": "bea70866-14d4-4e3c-a2a7-2cc70e069286",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Tap,Hold"
                 },
                 {
                     "name": "BTNPS",
@@ -51,7 +51,7 @@
                     "id": "8e90d8d8-c8eb-452a-ac7d-95f868a64580",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Tap,Hold"
                 }
             ],
             "bindings": [

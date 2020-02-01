@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
       Debug.Log("GFX");
       if (CheckIfRepair())
       {
-         Logger.LogInfo("Repair!", this);
+         desk.Repair(Desk.RepairType.Smash);
       }
       else
       {
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
       Debug.Log("CPU");
       if (CheckIfRepair())
       {
-         Logger.LogInfo("Repair!", this);
+         desk.Repair(Desk.RepairType.Smash);
       }
       else
       {
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
       Debug.Log("HDD");
       if (CheckIfRepair())
       {
-         Logger.LogInfo("Repair!", this);
+         desk.Repair(Desk.RepairType.Hold);
       }
       else
       {
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
       Debug.Log("PS");
       if (CheckIfRepair())
       {
-         Logger.LogInfo("Repair!", this);
+         desk.Repair(Desk.RepairType.Hold);
       }
       else
       {

@@ -38,4 +38,29 @@ public class ComputerUI : MonoBehaviour
 
     }
 
+    public void TakePiece(PieceContainer piece){
+        Sprite auxSprite=null;
+        if (piece.PieceType == PieceManager.CPU) {
+            auxSprite = CPUSprite;
+        }
+        else if (piece.PieceType == PieceManager.GTX)
+        {
+            auxSprite= GFXSprite;
+        }
+        else if (piece.PieceType == PieceManager.HDD)
+        {
+            auxSprite = HDDSprite;
+        }
+        else if (piece.PieceType == PieceManager.PS)
+        {
+            auxSprite = PSSprite;
+        }
+        for(int i=0;i<imgsIcons.Length;i++){
+            if(imgsIcons[i].sprite==auxSprite){
+                imgsIcons[i].gameObject.SetActive(false);
+            }
+        }
+    }
 }
+
+ 
