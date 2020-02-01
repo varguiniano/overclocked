@@ -31,8 +31,10 @@ public class Computer : MonoBehaviour
         //Aqui debemos crear aleatoriamente los componentes del pc
         PieceContainer container =  gameObject.AddComponent<PieceContainer>();
         container.AllowedPieceTypes.Add(PieceManager.CPU);
-        
-        container.AddPiece(Instantiate(PieceManager.CPUPrefab,transform));
+
+        Piece piece = Instantiate(PieceManager.CPUPrefab, transform);
+        piece.Health = 0;
+        container.AddPiece(piece);
         PieceContainers.Add(container);
         container =  gameObject.AddComponent<PieceContainer>();
         container.AllowedPieceTypes.Add(PieceManager.PS);
@@ -87,5 +89,18 @@ public class Computer : MonoBehaviour
         }
         // ESTO ES MUY MALLLOOOOO NO HEMOS COMPROBADO SI HAY PIEZA PRIMEROOOOO MALOOOOO
         return null;
+    }
+
+    public bool IsPieceBroken(PieceType pieceType)
+    {
+        for (int i = 0; i < PieceContainers.Count; i++)
+        {
+            if (PieceContainers[i].HasPiece && PieceContainers[i].PieceType == pieceType)
+            {
+                return PieceContainers[i].PieceBroken;
+            }
+        }
+
+        return false;
     }
 }
