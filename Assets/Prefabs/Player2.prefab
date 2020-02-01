@@ -132,7 +132,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -172,6 +172,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0f002c9961420b54c8c2c072300a436a, type: 2}
   - {fileID: 11400000, guid: b9b3188ae392f134999637e330d59bc1, type: 2}
   - {fileID: 11400000, guid: 736b1f44c09bae74a84e9eea5de4b704, type: 2}
+  piecePlaceholder: {fileID: 0}
+  usePlaceholder: 0
+  disablePiece: 0
   _piece: {fileID: 0}
 --- !u!65 &2212009869084568739
 BoxCollider:

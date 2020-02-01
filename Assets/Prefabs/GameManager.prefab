@@ -47,6 +47,8 @@ MonoBehaviour:
   OnGameEnd:
     m_PersistentCalls:
       m_Calls: []
-  Players: []
+  Players:
+  - {fileID: 0}
+  - {fileID: 0}
   ConveyorController: {fileID: 0}
   SpawnSpeed: {fileID: 11400000, guid: 2c10f9f3304532a4abc1a9f699e5abeb, type: 2}
