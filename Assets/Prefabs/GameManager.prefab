@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stars: 6
+  ElapsedSeconds: 0
+  GameBalance: {fileID: 11400000, guid: 21b6166535c7b5c4986504c0b3118351, type: 2}
+  ConveyorSpeed: {fileID: 11400000, guid: d11282558f7889d4284a60bbaf7b207d, type: 2}
   OnGameEnd:
     m_PersistentCalls:
       m_Calls: []
@@ -51,4 +54,3 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ConveyorController: {fileID: 0}
-  SpawnSpeed: {fileID: 11400000, guid: 2c10f9f3304532a4abc1a9f699e5abeb, type: 2}
