@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using GlobalVariables;
 using UnityEngine;
 using UnityEngine.Events;
 using Varguiniano.Core.Runtime.Common;
@@ -8,28 +9,30 @@ using Random = UnityEngine.Random;
 
 public class GameManager : Singleton<GameManager>
 {
-    [Range(0, 10)]
-    [SerializeField]
-    private int _stars = 6;
-    
+    [Range(0, 10)] [SerializeField] private int _stars = 6;
+
+    public float ElapsedSeconds;
+
     public int Stars
     {
         get { return _stars; }
         set
         {
             _stars = Mathf.Clamp(value, 0, 10);
-            if (_stars == 0)
+            if (_stars == 0 && !GameBalance.GodMode)
             {
                 EndGame();
             }
         }
     }
 
+    public GameBalance GameBalance;
+    public ConveyorSpeed ConveyorSpeed;
+
     public UnityEvent OnGameEnd;
 
     public List<Player> Players = new List<Player>();
     public ConveyorController ConveyorController;
-    public SpawnSpeed SpawnSpeed;
 
     private Coroutine SpawnRoutine;
 
@@ -47,6 +50,13 @@ public class GameManager : Singleton<GameManager>
     public void StartGame()
     {
         SpawnRoutine = StartCoroutine(ComputerSpawnRoutine());
+        ElapsedSeconds = 0;
+    }
+
+    private void Update()
+    {
+        ElapsedSeconds += Time.deltaTime;
+        ConveyorSpeed.Value = GameBalance.ConveyorSpeedRate.Evaluate(ElapsedSeconds);
     }
 
     public void ComputerReachedGoal(Computer computer)
@@ -74,6 +84,7 @@ public class GameManager : Singleton<GameManager>
         {
             player.gameObject.SetActive(false);
         }
+
         StopCoroutine(SpawnRoutine);
         OnGameEnd.Invoke();
     }
@@ -82,8 +93,12 @@ public class GameManager : Singleton<GameManager>
     {
         while (true)
         {
-            ConveyorController.SpawnComputer(new ComputerDescriptor(Random.Range(0,3),Random.Range(0,3),Random.Range(0,3),Random.Range(0,3)));
-            yield return new WaitForSecondsRealtime(SpawnSpeed.Value);
+            ConveyorController.SpawnComputer(new ComputerDescriptor(
+                Random.Range(0, (int) GameBalance.BrokenPiecesRate.Evaluate(ElapsedSeconds)),
+                Random.Range(0, (int) GameBalance.BrokenPiecesRate.Evaluate(ElapsedSeconds)),
+                Random.Range(0, (int) GameBalance.BrokenPiecesRate.Evaluate(ElapsedSeconds)),
+                Random.Range(0, (int) GameBalance.BrokenPiecesRate.Evaluate(ElapsedSeconds))));
+            yield return new WaitForSecondsRealtime(GameBalance.SpawnSpeedRate.Evaluate(ElapsedSeconds));
         }
     }
 }
