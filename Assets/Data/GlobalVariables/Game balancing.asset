@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e5072d8baa40148e7b62277d06bc13, type: 3}
   m_Name: Game balancing
   m_EditorClassIdentifier: 
-  GodMode: 1
+  GodMode: 0
   SpawnSpeedRate:
     serializedVersion: 2
     m_Curve:
