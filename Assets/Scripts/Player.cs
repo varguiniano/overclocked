@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     public PlayerAttributes Attributes;
     public PieceManager PieceManager;
 
+    public Transform PiecePosition;
+    private Piece _currentPiece;
+
     [Header("Runtime Interactions")] public Computer computer;
 
     public Desk desk;
@@ -35,10 +38,12 @@ public class Player : MonoBehaviour
     public void AddPiece(Piece piece)
     {
         _pieceContainer.AddPiece(piece);
+        _currentPiece = piece;
     }
 
     public Piece TakePiece()
     {
+        _currentPiece = null;
         return _pieceContainer.TakePiece();
     }
 
@@ -175,8 +180,12 @@ public class Player : MonoBehaviour
     {
         animator.SetFloat(_animatorSpeed,_playerInput.actions["move"].ReadValue<Vector2>().magnitude);
         animator.SetLayerWeight(_carryingLayer,HasPiece ? 1 :0);
-        
+        if (_currentPiece != null)
+        {
+            _currentPiece.transform.position = PiecePosition.position;
+        }
     }
+    
 
     public void FixedUpdate()
     {
