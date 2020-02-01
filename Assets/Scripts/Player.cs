@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public PieceManager PieceManager;
 
     public Transform PiecePosition;
-    public Transform RightHand;
+    private Piece _currentPiece;
 
     [Header("Runtime Interactions")] public Computer computer;
 
@@ -38,13 +38,12 @@ public class Player : MonoBehaviour
     public void AddPiece(Piece piece)
     {
         _pieceContainer.AddPiece(piece);
-        piece.transform.parent = RightHand;
-        piece.transform.position = PiecePosition.position;
-        
+        _currentPiece = piece;
     }
 
     public Piece TakePiece()
     {
+        _currentPiece = null;
         return _pieceContainer.TakePiece();
     }
 
@@ -181,7 +180,10 @@ public class Player : MonoBehaviour
     {
         animator.SetFloat(_animatorSpeed,_playerInput.actions["move"].ReadValue<Vector2>().magnitude);
         animator.SetLayerWeight(_carryingLayer,HasPiece ? 1 :0);
-        
+        if (_currentPiece != null)
+        {
+            _currentPiece.transform.position = PiecePosition.position;
+        }
     }
     
 
