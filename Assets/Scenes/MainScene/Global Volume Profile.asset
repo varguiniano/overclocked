@@ -68,9 +68,9 @@ MonoBehaviour:
   m_Name: Global Volume Profile
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 2450161721524594160}
-  - {fileID: 3105996629973900765}
   - {fileID: 3888664188416685608}
+  - {fileID: 3105996629973900765}
+  - {fileID: 2450161721524594160}
   - {fileID: -7478767510005760579}
   - {fileID: -8134912606764911865}
 --- !u!114 &2450161721524594160
@@ -89,15 +89,15 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 0.57
+    m_Value: 0.19
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 0.35
     min: 0
   scatter:
     m_OverrideState: 1
-    m_Value: 0.062
+    m_Value: 0.232
     min: 0
     max: 1
   clamp:
@@ -132,18 +132,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 22.46
+    m_Value: 20.29
     min: 0
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 22.5
+    m_Value: 46.2
     min: 0
   gaussianMaxRadius:
     m_OverrideState: 0
@@ -154,17 +154,17 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   focusDistance:
-    m_OverrideState: 0
-    m_Value: 10
+    m_OverrideState: 1
+    m_Value: 2.1
     min: 0.1
   aperture:
-    m_OverrideState: 0
-    m_Value: 5.6
+    m_OverrideState: 1
+    m_Value: 5.3
     min: 1
     max: 32
   focalLength:
-    m_OverrideState: 0
-    m_Value: 50
+    m_OverrideState: 1
+    m_Value: 46
     min: 1
     max: 300
   bladeCount:

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443f71a34a255484898ad346c5a28169, type: 3}
   m_Name: ConveyorSpeed
   m_EditorClassIdentifier: 
-  Value: 0.4562865
+  Value: 0.5172969
