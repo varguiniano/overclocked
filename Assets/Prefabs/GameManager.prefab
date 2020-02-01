@@ -43,3 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e291773aa90960e42adbb639bb57a44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stars: 6
+  OnGameEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  Players: []
+  ConveyorController: {fileID: 0}
+  SpawnSpeed: {fileID: 11400000, guid: 2c10f9f3304532a4abc1a9f699e5abeb, type: 2}

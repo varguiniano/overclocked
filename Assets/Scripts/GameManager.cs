@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Varguiniano.Core.Runtime.Common;
+using Random = UnityEngine.Random;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -28,10 +29,24 @@ public class GameManager : Singleton<GameManager>
 
     public List<Player> Players = new List<Player>();
     public ConveyorController ConveyorController;
+    public SpawnSpeed SpawnSpeed;
+
+    private Coroutine SpawnRoutine;
 
     public void Awake()
     {
         ConveyorController.OnComputerGoal.AddListener(ComputerReachedGoal);
+    }
+
+    private void OnEnable()
+    {
+        StartGame();
+    }
+
+    // TODO: Call this somewhere.
+    public void StartGame()
+    {
+        SpawnRoutine = StartCoroutine(ComputerSpawnRoutine());
     }
 
     public void ComputerReachedGoal(Computer computer)
@@ -59,6 +74,16 @@ public class GameManager : Singleton<GameManager>
         {
             player.gameObject.SetActive(false);
         }
+        StopCoroutine(SpawnRoutine);
         OnGameEnd.Invoke();
+    }
+
+    private IEnumerator ComputerSpawnRoutine()
+    {
+        while (true)
+        {
+            ConveyorController.SpawnComputer(new ComputerDescriptor(Random.Range(0,3),Random.Range(0,3),Random.Range(0,3),Random.Range(0,3)));
+            yield return new WaitForSecondsRealtime(SpawnSpeed.Value);
+        }
     }
 }
