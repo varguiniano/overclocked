@@ -92,7 +92,7 @@ public class Computer : MonoBehaviour
         {
             if (PieceContainers[i].HasPiece && PieceContainers[i].PieceType == pieceType)
             {
-                ui.TakePiece(PieceContainers[i], PieceContainers);
+                ui.TakePiece(PieceContainers[i]);
                 return PieceContainers[i].TakePiece();
             }
         }
