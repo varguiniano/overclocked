@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -520,6 +520,7 @@ MonoBehaviour:
   PieceContainers: []
   ui: {fileID: 1261558067}
   Size: {fileID: 0}
+  Placeholder: {fileID: 0}
   ConveyorSpeed: {fileID: 11400000, guid: d11282558f7889d4284a60bbaf7b207d, type: 2}
 --- !u!54 &1893678187
 Rigidbody:
