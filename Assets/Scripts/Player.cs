@@ -5,6 +5,7 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
+using Logger = Varguiniano.Core.Runtime.Debug.Logger;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PieceContainer))]
@@ -45,38 +46,66 @@ public class Player : MonoBehaviour
    public void OnBTNGFX()
    {
       Debug.Log("GFX");
-      ExchangePieceProcedure(PieceManager.GTX, _pieceContainer.PieceBroken);
+      if (CheckIfRepair())
+      {
+         desk.Repair(Desk.RepairType.Smash);
+      }
+      else
+      {
+         ExchangePieceProcedure(PieceManager.GTX);
+      }
    }
    public void OnBTNCPU()
    {
       Debug.Log("CPU");
-      ExchangePieceProcedure(PieceManager.CPU, _pieceContainer.PieceBroken);
+      if (CheckIfRepair())
+      {
+         desk.Repair(Desk.RepairType.Smash);
+      }
+      else
+      {
+         ExchangePieceProcedure(PieceManager.CPU);
+      }
    }
    public void OnBTNHDD()
    {
       Debug.Log("HDD");
-      ExchangePieceProcedure(PieceManager.HDD, _pieceContainer.PieceBroken);
+      if (CheckIfRepair())
+      {
+         desk.Repair(Desk.RepairType.Hold);
+      }
+      else
+      {
+         ExchangePieceProcedure(PieceManager.HDD);
+      }
    }
    public void OnBTNPS()
    {
       Debug.Log("PS");
-      ExchangePieceProcedure(PieceManager.PS, _pieceContainer.PieceBroken);
+      if (CheckIfRepair())
+      {
+         desk.Repair(Desk.RepairType.Hold);
+      }
+      else
+      {
+         ExchangePieceProcedure(PieceManager.PS);
+      }
    }
 
-   public void ExchangePieceProcedure(PieceType pieceType, bool broken)
+   public void ExchangePieceProcedure(PieceType pieceType)
    {
       if (computer != null)
       {
          if (HasPiece)
          {
-            if (computer.CanReceivePiece(pieceType, broken))
+            if (computer.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
             {
                computer.AddPiece(TakePiece());
             }
          }
          else
          {
-            if (computer.CanGivePiece(pieceType, broken))
+            if (computer.CanGivePiece(pieceType, computer.IsPieceBroken(pieceType)))
             {
                AddPiece(computer.TakePiece(pieceType));
             }
@@ -86,21 +115,25 @@ public class Player : MonoBehaviour
       {
          if (HasPiece)
          {
-            if (desk.CanReceivePiece(pieceType, broken))
+            if (desk.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
             {
                desk.AddPiece(TakePiece());
             }
          }
          else
          {
-            if (desk.CanGivePiece(pieceType, broken))
+            if (desk.CanGivePiece(pieceType, desk.PieceBroken))
             {
                AddPiece(desk.TakePiece());
             }
          }
       }
    }
-   
+
+   private bool CheckIfRepair()
+   {
+      return !_pieceContainer.HasPiece && desk != null && desk.PieceBroken;
+   }
 
 
    public void Update()

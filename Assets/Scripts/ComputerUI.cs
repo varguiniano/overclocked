@@ -11,7 +11,6 @@ public class ComputerUI : MonoBehaviour
     public Sprite CPUSprite;
     public Sprite PSSprite;
     public PieceManager PieceManager;
-    
 
     public void SetIcons(List<PieceContainer> pieceContainers) {
         for (int i = 0; i < pieceContainers.Count; i++) {
@@ -39,7 +38,7 @@ public class ComputerUI : MonoBehaviour
 
     }
 
-    public void TakePiece(PieceContainer piece,List<PieceContainer> pieceContainers){
+    public void TakePiece(PieceContainer piece){
         Sprite auxSprite=null;
         if (piece.PieceType == PieceManager.CPU) {
             auxSprite = CPUSprite;
@@ -63,3 +62,5 @@ public class ComputerUI : MonoBehaviour
         }
     }
 }
+
+ 

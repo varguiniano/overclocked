@@ -10,3 +10,7 @@ obj/
 Builds/
 
 .idea/
+
+*.csproj
+
+.vs/
