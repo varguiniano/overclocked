@@ -82,10 +82,12 @@ public class Computer : MonoBehaviour
         {
             if (PieceContainers[i].HasPiece && PieceContainers[i].PieceType == pieceType)
             {
+                ui.TakePiece(PieceContainers[i], PieceContainers);
                 return PieceContainers[i].TakePiece();
             }
         }
         // ESTO ES MUY MALLLOOOOO NO HEMOS COMPROBADO SI HAY PIEZA PRIMEROOOOO MALOOOOO
+     
         return null;
     }
 }
