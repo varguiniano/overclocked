@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public Desk desk;
 
     public TrashContainer trashContainer;
+    
+    public Shelves shelves;
 
     public bool HasPiece => _pieceContainer.HasPiece;
 
@@ -138,6 +140,24 @@ public class Player : MonoBehaviour
         {
             trashContainer.AddPiece(TakePiece());
         }
+        
+        if (shelves != null)
+        {
+            if (HasPiece)
+            {
+                if (shelves.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
+                {
+                    shelves.AddPiece(TakePiece());
+                }
+            }
+            else
+            {
+                if (shelves.CanGivePiece(pieceType, shelves.IsPieceBroken(pieceType)))
+                {
+                    AddPiece(shelves.TakePiece(pieceType));
+                }
+            }
+        }
     }
 
     private bool CheckIfRepair()
@@ -177,6 +197,11 @@ public class Player : MonoBehaviour
         {
             trashContainer = other.GetComponent<TrashContainer>();
         }
+        
+        if (other.gameObject.CompareTag("Shelves"))
+        {
+            shelves = other.GetComponent<Shelves>();
+        }
     }
 
     public void OnTriggerStay(Collider other)
@@ -195,6 +220,11 @@ public class Player : MonoBehaviour
         {
             trashContainer = other.GetComponent<TrashContainer>();
         }
+        
+        if (other.gameObject.CompareTag("Shelves"))
+        {
+            shelves = other.GetComponent<Shelves>();
+        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -202,5 +232,6 @@ public class Player : MonoBehaviour
         computer = null;
         desk = null;
         trashContainer = null;
+        shelves = null;
     }
 }
