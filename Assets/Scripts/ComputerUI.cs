@@ -5,62 +5,110 @@ using UnityEngine.UI;
 
 public class ComputerUI : MonoBehaviour
 {
-    public Image[] imgsIcons;
-    public Sprite HDDSprite;
-    public Sprite GFXSprite;
-    public Sprite CPUSprite;
-    public Sprite PSSprite;
+    public Image imgHDD;
+    public Image imgGFX;
+    public Image imgCPU;
+    public Image imgPS;
+    public Sprite HDDBrokenSprite;
+    public Sprite GFXBrokenSprite;
+    public Sprite CPUBrokenSprite;
+    public Sprite PSBrokenSprite;
+    public Sprite HDDEmptySprite;
+    public Sprite GFXEmptySprite;
+    public Sprite CPUEmptySprite;
+    public Sprite PSEmptySprite;
     public PieceManager PieceManager;
+    private List<PieceContainer> _pieceContainers;
 
-    public void SetIcons(List<PieceContainer> pieceContainers) {
-        for (int i = 0; i < pieceContainers.Count; i++) {
-            if (pieceContainers[i].PieceType == PieceManager.CPU) {
-                imgsIcons[i].sprite = CPUSprite;
-                imgsIcons[i].gameObject.SetActive(true);
-            }
-            else if (pieceContainers[i].PieceType == PieceManager.GTX)
-            {
-                imgsIcons[i].sprite = GFXSprite;
-                imgsIcons[i].gameObject.SetActive(true);
-            }
-            else if (pieceContainers[i].PieceType == PieceManager.HDD)
-            {
-                imgsIcons[i].sprite = HDDSprite;
-                imgsIcons[i].gameObject.SetActive(true);
-            }
-            else if (pieceContainers[i].PieceType == PieceManager.PS)
-            {
-                imgsIcons[i].sprite = PSSprite;
-                imgsIcons[i].gameObject.SetActive(true);
-            }
-
-        }
-
+    public void SetIcons(List<PieceContainer> pieceContainers)
+    {
+        _pieceContainers = pieceContainers;
     }
 
-    public void TakePiece(PieceContainer piece){
-        Sprite auxSprite=null;
-        if (piece.PieceType == PieceManager.CPU) {
-            auxSprite = CPUSprite;
-        }
-        else if (piece.PieceType == PieceManager.GTX)
+    private void Update()
+    {
+        for (int i = 0; i < _pieceContainers.Count; i++)
         {
-            auxSprite= GFXSprite;
-        }
-        else if (piece.PieceType == PieceManager.HDD)
-        {
-            auxSprite = HDDSprite;
-        }
-        else if (piece.PieceType == PieceManager.PS)
-        {
-            auxSprite = PSSprite;
-        }
-        for(int i=0;i<imgsIcons.Length;i++){
-            if(imgsIcons[i].sprite==auxSprite){
-                imgsIcons[i].gameObject.SetActive(false);
+            if (_pieceContainers[i].PieceType == PieceManager.CPU)
+            {
+                if (_pieceContainers[i].HasPiece)
+                {
+                    if (_pieceContainers[i].PieceBroken == false)
+                    {
+                        imgCPU.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        imgCPU.sprite = CPUBrokenSprite;
+                        imgCPU.gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    imgCPU.sprite = CPUEmptySprite;
+                    imgCPU.gameObject.SetActive(true);
+                }
+            }
+            else if (_pieceContainers[i].PieceType == PieceManager.GTX)
+            {
+                if (_pieceContainers[i].HasPiece)
+                {
+                    if (_pieceContainers[i].PieceBroken == false)
+                    {
+                        imgGFX.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        imgGFX.sprite = GFXBrokenSprite;
+                        imgGFX.gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    imgGFX.sprite = GFXEmptySprite;
+                    imgGFX.gameObject.SetActive(true);
+                }
+            }
+            else if (_pieceContainers[i].PieceType == PieceManager.HDD)
+            {
+                if (_pieceContainers[i].HasPiece)
+                {
+                    if (_pieceContainers[i].PieceBroken == false)
+                    {
+                        imgHDD.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        imgHDD.sprite = HDDBrokenSprite;
+                        imgHDD.gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    imgHDD.sprite = HDDEmptySprite;
+                    imgHDD.gameObject.SetActive(true);
+                }
+            }
+            else if (_pieceContainers[i].PieceType == PieceManager.PS)
+            {
+                if (_pieceContainers[i].HasPiece)
+                {
+                    if (_pieceContainers[i].PieceBroken == false)
+                    {
+                        imgPS.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        imgPS.sprite = PSBrokenSprite;
+                        imgPS.gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    imgPS.sprite = PSEmptySprite;
+                    imgPS.gameObject.SetActive(true);
+                }
             }
         }
     }
 }
-
- 
