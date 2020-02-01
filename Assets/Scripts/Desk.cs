@@ -5,6 +5,8 @@ using Logger = Varguiniano.Core.Runtime.Debug.Logger;
 
 public class Desk : MonoBehaviour
 {
+    public DeskFillGauge DeskFillGauge;
+
     public bool PieceBroken => _pieceContainer.PieceBroken;
 
     public Action OnRepair;
@@ -44,10 +46,19 @@ public class Desk : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (_pieceContainer.HasPiece) DeskFillGauge.SetValue(_pieceContainer.Health);
+        else
+        {
+            DeskFillGauge.Disable();
+        }
+    }
+
     public void Awake()
     {
         _pieceContainer = GetComponent<PieceContainer>();
-        
+
         // TODO: Remove this debug when we have visual feedback.
         OnRepair += () => Logger.LogInfo("Repair!", this);
     }

@@ -484,7 +484,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-106034
+  m_Name: pb_Mesh-289682
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -867,7 +867,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916781845}
-  m_LocalRotation: {x: 0.501258, y: -0.043975253, z: 0.02551849, w: 0.8638029}
+  m_LocalRotation: {x: 0.48878863, y: -0.040611617, z: 0.022786321, w: 0.87115854}
   m_LocalPosition: {x: 6.2643104, y: 16.74, z: -17.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1184,7 +1184,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-106054
+  m_Name: pb_Mesh-289708
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1481,7 +1481,7 @@ Camera:
     height: 1
   near clip plane: 0.33
   far clip plane: 1000
-  field of view: 56.6
+  field of view: 179
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1506,7 +1506,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839089390}
-  m_LocalRotation: {x: 0.5019492, y: -0.035220392, z: 0.010439165, w: 0.86411667}
+  m_LocalRotation: {x: 0.48942298, y: -0.032074895, z: 0.007579037, w: 0.87142354}
   m_LocalPosition: {x: 6.2643104, y: 16.74, z: -17.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1585,6 +1585,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2297555781396216049, guid: 68fe9409309b8a141a05dda82d0889d5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4009779994419606727, guid: 68fe9409309b8a141a05dda82d0889d5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8385,6 +8390,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2297555781396216049, guid: 68fe9409309b8a141a05dda82d0889d5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4009779994419606727, guid: 68fe9409309b8a141a05dda82d0889d5,
         type: 3}
       propertyPath: m_LocalPosition.x
