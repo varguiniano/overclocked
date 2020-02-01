@@ -10,6 +10,8 @@ public class Computer : MonoBehaviour
     public ComputerUI ui;
     public ComputerSizeType Size;
 
+    public Transform Placeholder;
+
     [Header("GlobalVariables")]
     public ConveyorSpeed ConveyorSpeed;
     public void OnTriggerEnter(Collider other)
@@ -22,29 +24,6 @@ public class Computer : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         GetComponentInChildren<MeshRenderer>().material.color = Color.black;
-    }
-
-    public void Start()
-    {
-        BuildComputer();
-        ui.SetIcons(PieceContainers);
-    }
-
-    public void BuildComputer()
-    {
-        //Aqui debemos crear aleatoriamente los componentes del pc
-        PieceContainer container =  gameObject.AddComponent<PieceContainer>();
-        container.AllowedPieceTypes.Add(PieceManager.CPU);
-
-        Piece piece = Instantiate(PieceManager.CPUPrefab, transform);
-        piece.Health = 0;
-        container.AddPiece(piece);
-        PieceContainers.Add(container);
-        container =  gameObject.AddComponent<PieceContainer>();
-        container.AllowedPieceTypes.Add(PieceManager.PS);
-        container.AddPiece(Instantiate(PieceManager.PSPrefab,transform));
-        PieceContainers.Add(container);
-        
     }
 
     public void Update()
