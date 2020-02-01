@@ -9,14 +9,11 @@ public class Desk : MonoBehaviour
 
     public bool PieceBroken => _pieceContainer.PieceBroken;
 
-    public ParticleSystem Sparks;
-    public ParticleSystem Lightnings;
-    public ParticleSystem Smoke;
+    public ParticleSystem Particles;
     
     public Action OnRepair;
 
     private PieceContainer _pieceContainer;
-    public PieceManager PieceManager;
 
 
     public bool CanReceivePiece(PieceType pieceType, bool broken)
@@ -41,26 +38,7 @@ public class Desk : MonoBehaviour
 
     public void Repair(RepairType repairType)
     {
-        if (_pieceContainer.PieceType == PieceManager.CPU)
-        {
-            Sparks.Play();
-            Smoke.Play();
-        }
-        if (_pieceContainer.PieceType == PieceManager.PS)
-        {
-            Lightnings.Play();
-            Smoke.Play();
-        }
-        if (_pieceContainer.PieceType == PieceManager.HDD)
-        {
-            Sparks.Play();
-            Smoke.Play();
-        }
-        if (_pieceContainer.PieceType == PieceManager.GTX)
-        {
-            Lightnings.Play();
-            Smoke.Play();
-        }
+        Particles.Play();
         switch (repairType)
         {
             case RepairType.Hold:
