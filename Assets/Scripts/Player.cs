@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     public PlayerAttributes Attributes;
     public PieceManager PieceManager;
 
+    public Transform PiecePosition;
+    public Transform RightHand;
+
     [Header("Runtime Interactions")] public Computer computer;
 
     public Desk desk;
@@ -35,6 +38,9 @@ public class Player : MonoBehaviour
     public void AddPiece(Piece piece)
     {
         _pieceContainer.AddPiece(piece);
+        piece.transform.parent = RightHand;
+        piece.transform.position = PiecePosition.position;
+        
     }
 
     public Piece TakePiece()
@@ -177,6 +183,7 @@ public class Player : MonoBehaviour
         animator.SetLayerWeight(_carryingLayer,HasPiece ? 1 :0);
         
     }
+    
 
     public void FixedUpdate()
     {
