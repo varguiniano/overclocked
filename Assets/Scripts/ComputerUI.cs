@@ -27,9 +27,10 @@ public class ComputerUI : MonoBehaviour
 
     private void Update()
     {
+        if(_pieceContainers == null) return;
         for (int i = 0; i < _pieceContainers.Count; i++)
         {
-            if (_pieceContainers[i].PieceType == PieceManager.CPU)
+            if (_pieceContainers[i].AllowedPieceTypes[0] == PieceManager.CPU)
             {
                 if (_pieceContainers[i].HasPiece)
                 {
@@ -49,7 +50,7 @@ public class ComputerUI : MonoBehaviour
                     imgCPU.gameObject.SetActive(true);
                 }
             }
-            else if (_pieceContainers[i].PieceType == PieceManager.GTX)
+            else if (_pieceContainers[i].AllowedPieceTypes[0] == PieceManager.GTX)
             {
                 if (_pieceContainers[i].HasPiece)
                 {
@@ -69,7 +70,7 @@ public class ComputerUI : MonoBehaviour
                     imgGFX.gameObject.SetActive(true);
                 }
             }
-            else if (_pieceContainers[i].PieceType == PieceManager.HDD)
+            else if (_pieceContainers[i].AllowedPieceTypes[0] == PieceManager.HDD)
             {
                 if (_pieceContainers[i].HasPiece)
                 {
@@ -89,7 +90,7 @@ public class ComputerUI : MonoBehaviour
                     imgHDD.gameObject.SetActive(true);
                 }
             }
-            else if (_pieceContainers[i].PieceType == PieceManager.PS)
+            else if (_pieceContainers[i].AllowedPieceTypes[0] == PieceManager.PS)
             {
                 if (_pieceContainers[i].HasPiece)
                 {

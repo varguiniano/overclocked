@@ -20,6 +20,7 @@ public class ComputerBuilder : ScriptableObject
                 container.AllowedPieceTypes.Add(PieceManager.CPU);
                 Piece piece = PieceManager.InstantiatePiece(PieceManager.CPU);
                 piece.Health = 0;
+                container.disablePiece = true;
                 container.AddPiece(piece);
                 computer.PieceContainers.Add(container);
             }
@@ -29,6 +30,7 @@ public class ComputerBuilder : ScriptableObject
                 container.AllowedPieceTypes.Add(PieceManager.GTX);
                 Piece piece = PieceManager.InstantiatePiece(PieceManager.GTX);
                 piece.Health = 0;
+                container.disablePiece = true;
                 container.AddPiece(piece);
                 computer.PieceContainers.Add(container);
             }
@@ -38,6 +40,7 @@ public class ComputerBuilder : ScriptableObject
                 container.AllowedPieceTypes.Add(PieceManager.HDD);
                 Piece piece = PieceManager.InstantiatePiece(PieceManager.HDD);
                 piece.Health = 0;
+                container.disablePiece = true;
                 container.AddPiece(piece);
                 computer.PieceContainers.Add(container);
             }
@@ -47,10 +50,13 @@ public class ComputerBuilder : ScriptableObject
                 container.AllowedPieceTypes.Add(PieceManager.PS);
                 Piece piece = PieceManager.InstantiatePiece(PieceManager.PS);
                 piece.Health = 0;
+                container.disablePiece = true;
                 container.AddPiece(piece);
                 computer.PieceContainers.Add(container);
             }
         }
+        
+        computer.ui.SetIcons(computer.PieceContainers);
 
         return computer;
 
