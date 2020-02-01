@@ -6,6 +6,8 @@ public class Piece : MonoBehaviour
 {
     public PieceType pieceType;
 
+    public bool Broken => _health < 100;
+
     [SerializeField]
     [Range(0,100)]
     private int _health = 100;
