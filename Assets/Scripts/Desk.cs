@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Desk : MonoBehaviour
 {
+    public bool PieceBroken => _pieceContainer.PieceBroken;
+    
     private PieceContainer _pieceContainer;
     
     
