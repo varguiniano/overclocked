@@ -181,7 +181,7 @@ MonoBehaviour:
   animator: {fileID: 7849263828321568370}
   Attributes: {fileID: 11400000, guid: e11fa00189fc25349a707223481c1f2c, type: 2}
   PieceManager: {fileID: 11400000, guid: 8e2284a9d329628409b2fdcb2d08856e, type: 2}
-  PiecePosition: {fileID: 0}
+  PiecePosition: {fileID: 1390482184465325252}
   computer: {fileID: 0}
   desk: {fileID: 0}
   trashContainer: {fileID: 0}
