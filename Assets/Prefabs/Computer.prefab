@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 3769689833110653165}
   - component: {fileID: 8142170497510397755}
   m_Layer: 5
-  m_Name: CPUIcon
+  m_Name: Img1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 2017252975687300248}
   - component: {fileID: 7236202238504885894}
   m_Layer: 5
-  m_Name: GFXIcon
+  m_Name: Img3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5678316368250589684}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 5681158408084269516}
   - component: {fileID: 7388717639482410932}
   m_Layer: 5
-  m_Name: HDDIcon
+  m_Name: Img2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5678316368250589684}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -348,8 +348,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5864484633016679083}
-  - {fileID: 2164254222318995786}
   - {fileID: 2131388977793877921}
+  - {fileID: 2164254222318995786}
   - {fileID: 8643246288698305881}
   m_Father: {fileID: 2117418007464019842}
   m_RootOrder: 0
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 8103570967993703252}
   - component: {fileID: 4587388286991033950}
   m_Layer: 5
-  m_Name: PSIcon
+  m_Name: Img4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,6 +519,7 @@ MonoBehaviour:
   PieceManager: {fileID: 11400000, guid: 8e2284a9d329628409b2fdcb2d08856e, type: 2}
   PieceContainers: []
   ui: {fileID: 1261558067}
+  ConveyorSpeed: {fileID: 11400000, guid: d11282558f7889d4284a60bbaf7b207d, type: 2}
 --- !u!54 &1893678187
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -560,15 +561,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da749f38d610944d0996d5f3e2955522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgsIcons:
-  - {fileID: 8142170497510397755}
-  - {fileID: 7236202238504885894}
-  - {fileID: 7388717639482410932}
-  - {fileID: 4587388286991033950}
-  HDDSprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  GFXSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  CPUSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  PSSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  imgHDD: {fileID: 8142170497510397755}
+  imgGFX: {fileID: 7388717639482410932}
+  imgCPU: {fileID: 7236202238504885894}
+  imgPS: {fileID: 4587388286991033950}
+  HDDBrokenSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  GFXBrokenSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  CPUBrokenSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  PSBrokenSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  HDDEmptySprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  GFXEmptySprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  CPUEmptySprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  PSEmptySprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   PieceManager: {fileID: 11400000, guid: 8e2284a9d329628409b2fdcb2d08856e, type: 2}
 --- !u!1001 &1515374502046598549
 PrefabInstance:

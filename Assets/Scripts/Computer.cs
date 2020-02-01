@@ -43,6 +43,7 @@ public class Computer : MonoBehaviour
         container.AllowedPieceTypes.Add(PieceManager.PS);
         container.AddPiece(Instantiate(PieceManager.PSPrefab,transform));
         PieceContainers.Add(container);
+        
     }
 
     public void Update()
@@ -92,7 +93,6 @@ public class Computer : MonoBehaviour
         {
             if (PieceContainers[i].HasPiece && PieceContainers[i].PieceType == pieceType)
             {
-                ui.TakePiece(PieceContainers[i]);
                 return PieceContainers[i].TakePiece();
             }
         }
