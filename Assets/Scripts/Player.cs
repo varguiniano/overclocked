@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Update()
+    public void FixedUpdate()
     {
         // MOVEMENT *************************************************************
         Vector2 moveVector = _playerInput.actions["move"].ReadValue<Vector2>();
