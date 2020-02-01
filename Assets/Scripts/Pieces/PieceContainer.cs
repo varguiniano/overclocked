@@ -6,8 +6,8 @@ public class PieceContainer : MonoBehaviour
 {
     public List<PieceType> AllowedPieceTypes = new List<PieceType>();
 
-    public bool PieceBroken => _piece.Broken;
-    
+    public bool PieceBroken => _piece != null && _piece.Broken;
+
     [SerializeField]
     private Piece _piece;
 

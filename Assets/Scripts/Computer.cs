@@ -38,11 +38,11 @@ public class Computer : MonoBehaviour
         PieceContainers.Add(container);
     }
 
-    public bool CanReceivePiece(PieceType pieceType)
+    public bool CanReceivePiece(PieceType pieceType, bool broken)
     {
         for (int i = 0; i < PieceContainers.Count; i++)
         {
-            if (!PieceContainers[i].HasPiece && PieceContainers[i].AllowedPieceTypes.Contains(pieceType))
+            if (!PieceContainers[i].HasPiece && PieceContainers[i].AllowedPieceTypes.Contains(pieceType) && !broken)
             {
                 return true;
             }
@@ -51,11 +51,11 @@ public class Computer : MonoBehaviour
         return false;
     }
     
-    public bool CanGivePiece(PieceType pieceType)
+    public bool CanGivePiece(PieceType pieceType, bool broken)
     {
         for (int i = 0; i < PieceContainers.Count; i++)
         {
-            if (PieceContainers[i].HasPiece && PieceContainers[i].PieceType == pieceType)
+            if (PieceContainers[i].HasPiece && PieceContainers[i].PieceType == pieceType && broken)
             {
                 return true;
             }

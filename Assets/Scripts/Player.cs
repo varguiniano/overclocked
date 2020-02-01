@@ -45,38 +45,38 @@ public class Player : MonoBehaviour
    public void OnBTNGFX()
    {
       Debug.Log("GFX");
-      ExchangePieceProcedure(PieceManager.GTX);
+      ExchangePieceProcedure(PieceManager.GTX, _pieceContainer.PieceBroken);
    }
    public void OnBTNCPU()
    {
       Debug.Log("CPU");
-      ExchangePieceProcedure(PieceManager.CPU);
+      ExchangePieceProcedure(PieceManager.CPU, _pieceContainer.PieceBroken);
    }
    public void OnBTNHDD()
    {
       Debug.Log("HDD");
-      ExchangePieceProcedure(PieceManager.HDD);
+      ExchangePieceProcedure(PieceManager.HDD, _pieceContainer.PieceBroken);
    }
    public void OnBTNPS()
    {
       Debug.Log("PS");
-      ExchangePieceProcedure(PieceManager.PS);
+      ExchangePieceProcedure(PieceManager.PS, _pieceContainer.PieceBroken);
    }
 
-   public void ExchangePieceProcedure(PieceType pieceType)
+   public void ExchangePieceProcedure(PieceType pieceType, bool broken)
    {
       if (computer != null)
       {
          if (HasPiece)
          {
-            if (computer.CanReceivePiece(pieceType))
+            if (computer.CanReceivePiece(pieceType, broken))
             {
                computer.AddPiece(TakePiece());
             }
          }
          else
          {
-            if (computer.CanGivePiece(pieceType))
+            if (computer.CanGivePiece(pieceType, broken))
             {
                AddPiece(computer.TakePiece(pieceType));
             }
@@ -86,14 +86,14 @@ public class Player : MonoBehaviour
       {
          if (HasPiece)
          {
-            if (desk.CanReceivePiece(pieceType))
+            if (desk.CanReceivePiece(pieceType, broken))
             {
                desk.AddPiece(TakePiece());
             }
          }
          else
          {
-            if (desk.CanGivePiece(pieceType))
+            if (desk.CanGivePiece(pieceType, broken))
             {
                AddPiece(desk.TakePiece());
             }
