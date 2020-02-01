@@ -7,6 +7,7 @@ public class Computer : MonoBehaviour
 {
     public PieceManager PieceManager;
     public List<PieceContainer> PieceContainers = new List<PieceContainer>();
+    public ComputerUI ui;
     public void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -22,6 +23,7 @@ public class Computer : MonoBehaviour
     public void Start()
     {
         BuildComputer();
+        ui.SetIcons(PieceContainers);
     }
 
     public void BuildComputer()
