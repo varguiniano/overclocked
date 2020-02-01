@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbf2318a45f490a8bc2ec173805b866, type: 3}
   m_Name: SpawnSpeed
   m_EditorClassIdentifier: 
-  Value: 1
+  Value: 10
