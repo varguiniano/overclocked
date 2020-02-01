@@ -6,3 +6,7 @@ Logs/
 *.sln
 Temp/
 obj/
+
+Builds/
+
+.idea/

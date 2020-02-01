@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1129,7 +1129,7 @@ PrefabInstance:
     - target: {fileID: 119415219322021878, guid: 4f8901359e4b3de4985168132db320ce,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4121385683590576423, guid: 4f8901359e4b3de4985168132db320ce,
         type: 3}
@@ -1373,6 +1373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NotificationBehavior
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528009789104665610, guid: 25a23686157964e4ba7f8154c0890671,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 5936203845646851994, guid: 25a23686157964e4ba7f8154c0890671,
         type: 3}
@@ -2244,6 +2249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NotificationBehavior
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528009789104665610, guid: 25a23686157964e4ba7f8154c0890671,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 5936203845646851994, guid: 25a23686157964e4ba7f8154c0890671,
         type: 3}
@@ -8466,7 +8476,7 @@ PrefabInstance:
     - target: {fileID: 119415219322021878, guid: 4f8901359e4b3de4985168132db320ce,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4121385683590576423, guid: 4f8901359e4b3de4985168132db320ce,
         type: 3}
