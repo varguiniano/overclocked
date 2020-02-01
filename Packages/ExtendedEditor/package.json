@@ -1,0 +1,12 @@
+{
+  "name": "varguiniano.extendededitor",
+  "version": "1.0.0",
+  "displayName": "Extended Editor",
+  "description": "Abstract classes to ease the creation of custom inspectors and drawers.",
+  "unity": "2019.1",
+  "author": {
+    "name": "Rodrigo Varga",
+    "email": "varguiniano@gmail.com",
+    "url": "https://rodrigovarga.com"
+  }
+}

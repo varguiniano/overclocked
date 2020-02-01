@@ -165,24 +165,6 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
- <Reference Include="EnhancedHierarchyEditor">
- <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Library/ScriptAssemblies/EnhancedHierarchyEditor.dll</HintPath>
- </Reference>
- <Reference Include="ConsolePro">
- <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Library/ScriptAssemblies/ConsolePro.dll</HintPath>
- </Reference>
- <Reference Include="UnityRecyclingListView">
- <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Library/ScriptAssemblies/UnityRecyclingListView.dll</HintPath>
- </Reference>
- <Reference Include="ExtendedEditor">
- <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Library/ScriptAssemblies/ExtendedEditor.dll</HintPath>
- </Reference>
- <Reference Include="VarguinianoCore">
- <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Library/ScriptAssemblies/VarguinianoCore.dll</HintPath>
- </Reference>
- <Reference Include="VarguinianoCoreEditor">
- <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Library/ScriptAssemblies/VarguinianoCoreEditor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Unity Editors/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>
@@ -360,11 +342,11 @@
  <Reference Include="UnityEngine.XRModule">
  <HintPath>D:/Unity Editors/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
- <Reference Include="System.IO.Compression.FileSystem">
- <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Library/PackageCache/varguiniano.private.core@e6b47b385332-1580545729366/Runtime/Common/Libraries/System.IO.Compression.FileSystem.dll</HintPath>
- </Reference>
  <Reference Include="System.IO.Compression">
- <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Library/PackageCache/varguiniano.private.core@e6b47b385332-1580545729366/Runtime/Common/Libraries/System.IO.Compression.dll</HintPath>
+ <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Packages/Core/Runtime/Common/Libraries/System.IO.Compression.dll</HintPath>
+ </Reference>
+ <Reference Include="System.IO.Compression.FileSystem">
+ <HintPath>C:/Users/vargu/Desktop/dev/overclocked/Packages/Core/Runtime/Common/Libraries/System.IO.Compression.FileSystem.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>D:/Unity Editors/2019.3.0f6/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -720,6 +702,28 @@
  <Reference Include="Boo.Lang">
  <HintPath>D:/Unity Editors/2019.3.0f6/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ExtendedEditor.csproj">
+      <Project>{7A832041-6043-7B49-A115-F999ED088537}</Project>
+      <Name>ExtendedEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="ConsolePro.csproj">
+      <Project>{5897BF3C-BAB0-848C-5485-F12F550B1514}</Project>
+      <Name>ConsolePro</Name>
+    </ProjectReference>
+    <ProjectReference Include="VarguinianoCore.csproj">
+      <Project>{65E4B998-7F7A-7853-9245-EE6F330690EB}</Project>
+      <Name>VarguinianoCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityRecyclingListView.csproj">
+      <Project>{27C6C742-575B-8D8F-1DEF-C17F826AF95E}</Project>
+      <Name>UnityRecyclingListView</Name>
+    </ProjectReference>
+    <ProjectReference Include="VarguinianoCoreEditor.csproj">
+      <Project>{4E1EE320-CB6E-FF05-F73D-B97069404613}</Project>
+      <Name>VarguinianoCoreEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -233,11 +233,33 @@
                 },
                 {
                     "name": "",
+                    "id": "aec34f97-ca71-491a-b6ec-3aa3bcb1c36e",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BTNGFX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fd09e50d-164f-4dfa-ae88-aa574cbf4ae7",
                     "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "BTNCPU",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf71ee1c-eec7-4d7c-bb2a-1855e61a1a75",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "BTNCPU",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -255,8 +277,30 @@
                 },
                 {
                     "name": "",
+                    "id": "6a470cd1-9fca-4c95-91e3-c60b98550fb4",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BTNHDD",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "540fd97e-ac1e-4b68-b1f8-f3091f5d7a34",
                     "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BTNPS",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2cc44a1-7cb6-47ea-bc9f-9ab4ba31eca2",
+                    "path": "<XInputController>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

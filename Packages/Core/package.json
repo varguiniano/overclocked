@@ -1,0 +1,17 @@
+{
+  "name": "varguiniano.private.core",
+  "version": "0.0.3",
+  "displayName": "Varguiniano's Core",
+  "description": "Collection of reusable features that can be used in all games.",
+  "unity": "2019.1",
+  "dependencies":
+  {
+    "varguiniano.extendededitor": "1.0.0",
+    "varguiniano.unityrecyclinglistview": "1.0.0"
+  },
+  "author": {
+    "name": "Rodrigo Varga",
+    "email": "varguiniano@gmail.com",
+    "url": "https://rodrigovarga.com"
+  }
+}

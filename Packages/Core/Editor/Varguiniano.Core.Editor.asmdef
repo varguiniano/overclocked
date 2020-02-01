@@ -1,0 +1,17 @@
+{
+    "name": "VarguinianoCoreEditor",
+    "references": [
+        "GUID:ed8b64f314bc6ca478e1df735ff57046",
+        "GUID:204530a5355e82841ba0f47bc06bc136"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

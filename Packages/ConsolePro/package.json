@@ -1,0 +1,12 @@
+{
+  "name": "varguiniano.private.consolepro",
+  "version": "1.0.0",
+  "displayName": "Console Pro",
+  "description": "Modification of Console Pro to be used as a package. Buy it on the Asset Store before using!",
+  "unity": "2019.1",
+  "author": {
+    "name": "Rodrigo Varga",
+    "email": "varguiniano@gmail.com",
+    "url": "https://rodrigovarga.com"
+  }
+}

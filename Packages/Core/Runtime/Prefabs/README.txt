@@ -1,0 +1,1 @@
+Prefabs in this folder won't be found by the Singleton system. If you want them to be instantiated on demand, copy them to the Resources/Prefabs/Singleton folder on your project.
