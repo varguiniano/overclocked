@@ -18,6 +18,8 @@ public class PieceContainer : MonoBehaviour
     public bool HasPiece => _piece != null;
     public PieceType PieceType => _piece.pieceType;
 
+    public int Health => _piece.Health;
+
     public Piece TakePiece()
     {
         if (!HasPiece) return null;
