@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
     private CharacterController _characterController;
     private PieceContainer _pieceContainer;
 
+    public Animator animator;
+    private int _animatorSpeed = Animator.StringToHash("Speed");
+    private int _carryingLayer;
+    
     public PlayerAttributes Attributes;
     public PieceManager PieceManager;
 
@@ -40,9 +44,11 @@ public class Player : MonoBehaviour
 
     public void Awake()
     {
+        
         _playerInput = GetComponent<PlayerInput>();
         _characterController = GetComponent<CharacterController>();
         _pieceContainer = GetComponent<PieceContainer>();
+        _carryingLayer = animator.GetLayerIndex("CarryPiece");
     }
 
     public void OnBTNGFX()
@@ -165,6 +171,12 @@ public class Player : MonoBehaviour
         return !_pieceContainer.HasPiece && desk != null && desk.PieceBroken;
     }
 
+    public void Update()
+    {
+        animator.SetFloat(_animatorSpeed,_playerInput.actions["move"].ReadValue<Vector2>().magnitude);
+        animator.SetLayerWeight(_carryingLayer,HasPiece ? 1 :0);
+        
+    }
 
     public void FixedUpdate()
     {
