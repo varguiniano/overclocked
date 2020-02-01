@@ -5,12 +5,13 @@ using UnityEngine.UI;
 public class StarsPanel : MonoBehaviour
 {
     public Image[] stars;
+    public GameManager GameManager;
 
     private int _starsNumber;
     // Update is called once per frame
     void Update()
     {
-        _starsNumber = GameManager.Instance.Stars;
+        _starsNumber = GameManager.Stars;
         if (_starsNumber >= 10)
         {
             _starsNumber = 10;

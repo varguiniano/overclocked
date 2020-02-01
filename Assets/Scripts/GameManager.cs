@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using GlobalVariables;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using Varguiniano.Core.Runtime.Common;
 using Random = UnityEngine.Random;
 
@@ -51,6 +52,12 @@ public class GameManager : Singleton<GameManager>
     {
         SpawnRoutine = StartCoroutine(ComputerSpawnRoutine());
         ElapsedSeconds = 0;
+    }
+
+    public void Replay()
+    {
+        SceneManager.LoadScene("MainScene");
+        Time.timeScale = 1;
     }
 
     private void Update()
