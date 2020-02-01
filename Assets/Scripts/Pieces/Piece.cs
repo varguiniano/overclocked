@@ -16,4 +16,9 @@ public class Piece : MonoBehaviour
         get { return _health; }
         set { _health = value; }
     }
+
+    public void Repair(int repairHealth)
+    {
+        _health = Mathf.Clamp(_health + repairHealth, 0, 100);
+    }
 }

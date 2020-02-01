@@ -8,6 +8,10 @@ public class Computer : MonoBehaviour
     public PieceManager PieceManager;
     public List<PieceContainer> PieceContainers = new List<PieceContainer>();
     public ComputerUI ui;
+    public ComputerSizeType Size;
+
+    [Header("GlobalVariables")]
+    public ConveyorSpeed ConveyorSpeed;
     public void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -40,6 +44,12 @@ public class Computer : MonoBehaviour
         container.AllowedPieceTypes.Add(PieceManager.PS);
         container.AddPiece(Instantiate(PieceManager.PSPrefab,transform));
         PieceContainers.Add(container);
+        
+    }
+
+    public void Update()
+    {
+        transform.Translate(transform.right * (ConveyorSpeed.Value * Time.deltaTime));
     }
 
     public bool CanReceivePiece(PieceType pieceType, bool broken)
@@ -88,6 +98,7 @@ public class Computer : MonoBehaviour
             }
         }
         // ESTO ES MUY MALLLOOOOO NO HEMOS COMPROBADO SI HAY PIEZA PRIMEROOOOO MALOOOOO
+     
         return null;
     }
 

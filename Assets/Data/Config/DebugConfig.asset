@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DebugConfig
   m_EditorClassIdentifier: 
   Encrypted: 0
-  FileName: Config
+  FileName: DebugConfig
   ConfigData:
     LogLevel: 0
     InGameConsole: 1

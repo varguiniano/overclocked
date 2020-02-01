@@ -14,4 +14,27 @@ public class PieceManager : ScriptableObject
     public Piece GTXPrefab;
     public Piece PSPrefab;
     public Piece HDDPrefab;
+
+
+    public Piece InstantiatePiece(PieceType pieceType)
+    {
+        if (pieceType == CPU)
+        {
+            return Instantiate(CPUPrefab);
+        }
+        if (pieceType == GTX)
+        {
+            return Instantiate(GTXPrefab);
+        }
+        if (pieceType == PS)
+        {
+            return Instantiate(PSPrefab);
+        }
+        if (pieceType == HDD)
+        {
+            return Instantiate(HDDPrefab);
+        }
+
+        return null;
+    }
 }

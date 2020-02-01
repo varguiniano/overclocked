@@ -28,4 +28,9 @@ public class PieceContainer : MonoBehaviour
         piece.transform.parent = transform;
         return true;
     }
+
+    public void Repair(int health)
+    {
+        if(HasPiece) _piece.Repair(health);
+    }
 }
