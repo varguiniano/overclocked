@@ -11,9 +11,5 @@
         {
             base.OnInspectorGUI();
 
-            for (int i = 0; i < _this.Count; i++)
-            {
-                EditorGUILayout.ObjectField(_this.TakePiece(i),typeof(Piece),true);
-            }
         }
     }

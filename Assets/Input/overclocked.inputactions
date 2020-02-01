@@ -22,7 +22,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "BTNGrafica",
+                    "name": "BTNGFX",
                     "type": "Button",
                     "id": "4e399b12-c48a-4453-ae2c-76cbc189ad14",
                     "expectedControlType": "Button",
@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "BTNDisco",
+                    "name": "BTNHDD",
                     "type": "Button",
                     "id": "bea70866-14d4-4e3c-a2a7-2cc70e069286",
                     "expectedControlType": "",
@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "BTNFuente",
+                    "name": "BTNPS",
                     "type": "Button",
                     "id": "8e90d8d8-c8eb-452a-ac7d-95f868a64580",
                     "expectedControlType": "",
@@ -227,7 +227,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "BTNGrafica",
+                    "action": "BTNGFX",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -249,7 +249,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BTNDisco",
+                    "action": "BTNHDD",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -260,7 +260,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BTNFuente",
+                    "action": "BTNPS",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

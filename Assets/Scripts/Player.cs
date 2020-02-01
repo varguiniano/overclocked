@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PieceContainer))]
@@ -14,34 +16,95 @@ public class Player : MonoBehaviour
    
    public PlayerAttributes Attributes;
    public PieceManager PieceManager;
-   
-   private Piece _piece;
-
-   public Piece piece
-   {
-      get { return _piece; }
-      set { _piece = value; }
-   }
 
    [Header("Runtime Interactions")] 
-   public PieceContainer otherContainer;
+   public Computer computer;
 
-   public bool HasPiece => _pieceContainer.Count != 0;
+   public Desk desk;
+
+   public bool HasPiece => _pieceContainer.HasPiece;
+
+   public void AddPiece(Piece piece)
+   {
+      _pieceContainer.AddPiece(piece);
+   }
+
+   public Piece TakePiece()
+   {
+      return _pieceContainer.TakePiece();
+   }
 
    public void Awake()
    {
       _playerInput = GetComponent<PlayerInput>();
       _characterController = GetComponent<CharacterController>();
       _pieceContainer =  GetComponent<PieceContainer>();
+      
+   }
+
+   public void OnBTNGFX()
+   {
+      Debug.Log("GFX");
+      ExchangePieceProcedure(PieceManager.GTX);
+   }
+   public void OnBTNCPU()
+   {
+      Debug.Log("CPU");
+      ExchangePieceProcedure(PieceManager.CPU);
+   }
+   public void OnBTNHDD()
+   {
+      Debug.Log("HDD");
+      ExchangePieceProcedure(PieceManager.HDD);
+   }
+   public void OnBTNPS()
+   {
+      Debug.Log("PS");
+      ExchangePieceProcedure(PieceManager.PS);
+   }
+
+   public void ExchangePieceProcedure(PieceType pieceType)
+   {
+      if (computer != null)
+      {
+         if (HasPiece)
+         {
+            if (computer.CanReceivePiece(pieceType))
+            {
+               computer.AddPiece(TakePiece());
+            }
+         }
+         else
+         {
+            if (computer.CanGivePiece(pieceType))
+            {
+               AddPiece(computer.TakePiece(pieceType));
+            }
+         }
+      }
+      if (desk != null)
+      {
+         if (HasPiece)
+         {
+            if (desk.CanReceivePiece(pieceType))
+            {
+               desk.AddPiece(TakePiece());
+            }
+         }
+         else
+         {
+            if (desk.CanGivePiece(pieceType))
+            {
+               AddPiece(desk.TakePiece());
+            }
+         }
+      }
    }
    
 
+
    public void Update()
    {
-      if (_playerInput.actions["BTNCPU"].triggered)
-      {
-         Debug.Log("CPU");
-      }
 
       // MOVEMENT *************************************************************
       Vector2 moveVector = _playerInput.actions["move"].ReadValue<Vector2>();
@@ -54,38 +117,37 @@ public class Player : MonoBehaviour
       _characterController.SimpleMove(forward * Attributes.Speed);
       //************************************************************************
 
-      if (otherContainer)
-      {
-         if (HasPiece)
-         {
-         }
-         if (_playerInput.actions["BTNCPU"].triggered)
-         {
-            
-         }
-      }
    }
 
    public void OnTriggerEnter(Collider other)
    {
-      PieceContainer oContainer = other.GetComponent<PieceContainer>();
-      if (oContainer != null)
+      if (other.gameObject.CompareTag("Computer"))
       {
-         otherContainer = oContainer;
+         computer = other.GetComponent<Computer>();
       }
+      
+      if (other.gameObject.CompareTag("Desk"))
+      {
+         desk = other.GetComponent<Desk>();
+      }
+      
    }
 
    public void OnTriggerStay(Collider other)
    {
-      PieceContainer oContainer = other.GetComponent<PieceContainer>();
-      if (oContainer != null)
+      if (other.gameObject.CompareTag("Computer"))
       {
-         otherContainer = oContainer;
+         computer = other.GetComponent<Computer>();
+      }
+      if (other.gameObject.CompareTag("Desk"))
+      {
+         desk = other.GetComponent<Desk>();
       }
    }
 
    public void OnTriggerExit(Collider other)
    {
-      otherContainer = null;
+      computer = null;
+      desk = null;
    }
 }

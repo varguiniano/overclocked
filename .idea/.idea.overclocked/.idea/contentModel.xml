@@ -10,6 +10,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Computer.cs" t="Include" />
+          <e p="Desk.cs" t="Include" />
           <e p="Pieces" t="Include">
             <e p="CPU.cs" t="Include" />
             <e p="GTX.cs" t="Include" />

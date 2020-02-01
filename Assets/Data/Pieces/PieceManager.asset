@@ -16,3 +16,11 @@ MonoBehaviour:
   GTX: {fileID: 11400000, guid: 0f002c9961420b54c8c2c072300a436a, type: 2}
   PS: {fileID: 11400000, guid: 736b1f44c09bae74a84e9eea5de4b704, type: 2}
   HDD: {fileID: 11400000, guid: b9b3188ae392f134999637e330d59bc1, type: 2}
+  CPUPrefab: {fileID: 2634291111614841210, guid: 23162f5c015a4db4e97121f87151378e,
+    type: 3}
+  GTXPrefab: {fileID: 2634291111614841210, guid: a5ce42eca2d394f4fb3b5dbcf64c3371,
+    type: 3}
+  PSPrefab: {fileID: 2634291111614841210, guid: b080de52d7006d04185a0144575a228e,
+    type: 3}
+  HDDPrefab: {fileID: 2634291111614841210, guid: 4f5cfdb6b22ffa2428884a6ecd98212d,
+    type: 3}
