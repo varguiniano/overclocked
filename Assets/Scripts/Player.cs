@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 using Logger = Varguiniano.Core.Runtime.Debug.Logger;
@@ -25,6 +26,11 @@ public class Player : MonoBehaviour
     public PieceManager PieceManager;
 
     public Transform PiecePosition;
+
+    public UnityEvent PlacePiece;
+    public UnityEvent TrashPiece;
+    public UnityEvent RepairComputer;
+    
     private Piece _currentPiece;
 
     [Header("Runtime Interactions")] public Computer computer;
@@ -119,6 +125,7 @@ public class Player : MonoBehaviour
                 if (computer.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
                 {
                     computer.AddPiece(TakePiece());
+                    RepairComputer?.Invoke();
                 }
             }
             else
@@ -126,6 +133,7 @@ public class Player : MonoBehaviour
                 if (computer.CanGivePiece(pieceType, computer.IsPieceBroken(pieceType)))
                 {
                     AddPiece(computer.TakePiece(pieceType));
+                    PlacePiece?.Invoke();
                 }
             }
         }
@@ -137,6 +145,7 @@ public class Player : MonoBehaviour
                 if (desk.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
                 {
                     desk.AddPiece(TakePiece());
+                    PlacePiece?.Invoke();
                 }
             }
             else
@@ -144,6 +153,7 @@ public class Player : MonoBehaviour
                 if (desk.CanGivePiece(pieceType, desk.PieceBroken))
                 {
                     AddPiece(desk.TakePiece());
+                    PlacePiece?.Invoke();
                 }
             }
         }
@@ -152,6 +162,7 @@ public class Player : MonoBehaviour
             trashContainer.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
         {
             trashContainer.AddPiece(TakePiece());
+            TrashPiece?.Invoke();
         }
         
         if (shelves != null)
@@ -161,6 +172,7 @@ public class Player : MonoBehaviour
                 if (shelves.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
                 {
                     shelves.AddPiece(TakePiece());
+                    PlacePiece?.Invoke();
                 }
             }
             else
@@ -168,6 +180,7 @@ public class Player : MonoBehaviour
                 if (shelves.CanGivePiece(pieceType, shelves.IsPieceBroken(pieceType)))
                 {
                     AddPiece(shelves.TakePiece(pieceType));
+                    PlacePiece?.Invoke();
                 }
             }
         }
