@@ -11,7 +11,7 @@ public class PieceContainer : MonoBehaviour
     public bool usePlaceholder;
     public bool disablePiece;
 
-    public bool PieceBroken => _piece != null && _piece.Broken;
+    public bool PieceBroken => _piece == null || _piece.Broken;
 
     [SerializeField] private Piece _piece;
 
