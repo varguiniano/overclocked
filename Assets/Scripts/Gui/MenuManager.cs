@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
     private bool player1Active;
     private bool player2Active;
     public PlayersSelected PlayersSelected;
-
+   
     public Material originalMat;
     public Material greyMat;
     // Start is called before the first frame update
@@ -18,13 +18,9 @@ public class MenuManager : MonoBehaviour
         player1Active = true;
         player2Active = true;
         PlayersSelected.playerSelection = PlayersSelected.PlayerSelectOptions.bothPlayers;
+      
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public void ClickPlayer1()
     {
