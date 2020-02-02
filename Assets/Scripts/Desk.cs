@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Logger = Varguiniano.Core.Runtime.Debug.Logger;
 
@@ -11,7 +12,7 @@ public class Desk : MonoBehaviour
 
     public ParticleSystem Particles;
     
-    public Action OnRepair;
+    public UnityEvent OnRepair;
 
     private PieceContainer _pieceContainer;
 
@@ -61,9 +62,6 @@ public class Desk : MonoBehaviour
     public void Awake()
     {
         _pieceContainer = GetComponent<PieceContainer>();
-
-        // TODO: Remove this debug when we have visual feedback.
-        OnRepair += () => Logger.LogInfo("Repair!", this);
     }
 
     public enum RepairType
