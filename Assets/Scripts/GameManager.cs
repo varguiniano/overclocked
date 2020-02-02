@@ -29,7 +29,8 @@ public class GameManager : Singleton<GameManager>
 
     public GameBalance GameBalance;
     public ConveyorSpeed ConveyorSpeed;
-
+    public PlayersSelected PlayersSelected;
+    
     public UnityEvent OnGameEnd;
 
     public List<Player> Players = new List<Player>();
@@ -64,6 +65,21 @@ public class GameManager : Singleton<GameManager>
     // TODO: Call this somewhere.
     public void StartGame()
     {
+        if (PlayersSelected.playerSelection == PlayersSelected.PlayerSelectOptions.bothPlayers)
+        {
+            Players[0].gameObject.SetActive(true);
+            Players[1].gameObject.SetActive(true);
+        }
+        else if(PlayersSelected.playerSelection == PlayersSelected.PlayerSelectOptions.player1)
+        {
+            Players[0].gameObject.SetActive(true);
+        } 
+        else if(PlayersSelected.playerSelection == PlayersSelected.PlayerSelectOptions.player2)
+        {
+            Players[1].gameObject.SetActive(true);
+        }
+
+
         SpawnRoutine = StartCoroutine(ComputerSpawnRoutine());
         StartCoroutine(TimerRoutine());
         ElapsedSeconds = 0;
