@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public UnityEvent TrashPiece;
     public UnityEvent RepairComputer;
     public UnityEvent Error;
+    public AudioSource RunningAudioSource;
     
     private Piece _currentPiece;
 
@@ -209,11 +210,24 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        animator.SetFloat(_animatorSpeed,_playerInput.actions["move"].ReadValue<Vector2>().magnitude);
+        float magnitude = _playerInput.actions["move"].ReadValue<Vector2>().magnitude;
+        animator.SetFloat(_animatorSpeed, magnitude);
         animator.SetLayerWeight(_carryingLayer,HasPiece ? 1 :0);
         if (_currentPiece != null)
         {
             _currentPiece.transform.position = PiecePosition.position;
+        }
+
+        if (magnitude > 0.5f)
+        {
+            if (!RunningAudioSource.isPlaying)
+            {
+                RunningAudioSource.Play();
+            }
+        }
+        else
+        {
+            RunningAudioSource.Stop();
         }
     }
     
