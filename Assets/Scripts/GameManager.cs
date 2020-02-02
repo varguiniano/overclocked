@@ -35,6 +35,11 @@ public class GameManager : Singleton<GameManager>
     public List<Player> Players = new List<Player>();
     public ConveyorController ConveyorController;
 
+    public bool GameEnded = false;
+    public float Timer = 0;
+
+    
+
     private Coroutine SpawnRoutine;
 
     public void Awake()
@@ -46,11 +51,21 @@ public class GameManager : Singleton<GameManager>
     {
         StartGame();
     }
+    
+    private IEnumerator TimerRoutine()
+    {
+        while (!GameEnded)
+        {
+            yield return new WaitForSeconds(1f);
+            Timer++;
+        }
+    }
 
     // TODO: Call this somewhere.
     public void StartGame()
     {
         SpawnRoutine = StartCoroutine(ComputerSpawnRoutine());
+        StartCoroutine(TimerRoutine());
         ElapsedSeconds = 0;
     }
 
@@ -58,6 +73,7 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadScene("MainScene");
         Time.timeScale = 1;
+        GameEnded = false;
     }
 
     private void Update()
@@ -93,6 +109,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         StopCoroutine(SpawnRoutine);
+        GameEnded = true;
         OnGameEnd.Invoke();
     }
 
@@ -108,4 +125,6 @@ public class GameManager : Singleton<GameManager>
             yield return new WaitForSecondsRealtime(GameBalance.SpawnSpeedRate.Evaluate(ElapsedSeconds));
         }
     }
+    
+    
 }
