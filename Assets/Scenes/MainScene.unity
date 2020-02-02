@@ -1654,7 +1654,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916781845}
-  m_LocalRotation: {x: 0.51033145, y: -0.00012315084, z: 0.000073080664, w: 0.85997784}
+  m_LocalRotation: {x: 0.51033133, y: -0.00012315084, z: 0.000073080635, w: 0.85997784}
   m_LocalPosition: {x: 5.3865366, y: 16.74, z: -17.445103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2501,6 +2501,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7266018756939188769, guid: ece99e0004e51fa41ba2468c5a788657,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266018756939188769, guid: ece99e0004e51fa41ba2468c5a788657,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ece99e0004e51fa41ba2468c5a788657, type: 3}
 --- !u!4 &1817283352 stripped
@@ -2599,7 +2609,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839089390}
-  m_LocalRotation: {x: 0.5102559, y: 0.0087833805, z: -0.014935615, w: 0.85984814}
+  m_LocalRotation: {x: 0.51025575, y: 0.00878338, z: -0.014935615, w: 0.8598482}
   m_LocalPosition: {x: 5.3865366, y: 16.74, z: -17.445103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3482,6 +3492,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266018756939188769, guid: 25a23686157964e4ba7f8154c0890671,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266018756939188769, guid: 25a23686157964e4ba7f8154c0890671,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a23686157964e4ba7f8154c0890671, type: 3}
