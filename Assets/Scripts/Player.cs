@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     public UnityEvent PlacePiece;
     public UnityEvent TrashPiece;
     public UnityEvent RepairComputer;
+    public UnityEvent Error;
     
     private Piece _currentPiece;
 
@@ -66,53 +67,38 @@ public class Player : MonoBehaviour
 
     public void OnBTNGFX()
     {
-        if (CheckIfRepair())
-        {
-            desk.Repair(Desk.RepairType.Smash);
-            animator.SetTrigger(_animatorRepair);
-        }
-        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.GTX)
-        {
-            ExchangePieceProcedure(PieceManager.GTX);
-        }
+        ButtonPressed(PieceManager.GTX);
     }
 
     public void OnBTNCPU()
     {
+        ButtonPressed(PieceManager.CPU);
+    }
+
+    public void OnBTNHDD()
+    {
+        ButtonPressed(PieceManager.HDD);
+    }
+
+    public void OnBTNPS()
+    {
+        ButtonPressed(PieceManager.PS);
+    }
+
+    private void ButtonPressed(PieceType pieceType)
+    {
         if (CheckIfRepair())
         {
             desk.Repair(Desk.RepairType.Smash);
             animator.SetTrigger(_animatorRepair);
         }
-        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.CPU)
+        else if(HasPiece)
         {
-            ExchangePieceProcedure(PieceManager.CPU);
+            ExchangePieceProcedure(_pieceContainer.PieceType);
         }
-    }
-
-    public void OnBTNHDD()
-    {
-        if (CheckIfRepair())
+        else
         {
-            desk.Repair(Desk.RepairType.Hold);
-            animator.SetTrigger(_animatorRepair);
-        }
-        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.HDD)
-        {
-            ExchangePieceProcedure(PieceManager.HDD);
-        }
-    }
-
-    public void OnBTNPS()
-    {
-        if (CheckIfRepair())
-        {
-            desk.Repair(Desk.RepairType.Hold);
-            animator.SetTrigger(_animatorRepair);
-        }
-        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.PS)
-        {
-            ExchangePieceProcedure(PieceManager.PS);
+            ExchangePieceProcedure(pieceType);
         }
     }
 
@@ -127,6 +113,10 @@ public class Player : MonoBehaviour
                     computer.AddPiece(TakePiece());
                     RepairComputer?.Invoke();
                 }
+                else
+                {
+                    Error?.Invoke();
+                }
             }
             else
             {
@@ -134,6 +124,10 @@ public class Player : MonoBehaviour
                 {
                     AddPiece(computer.TakePiece(pieceType));
                     PlacePiece?.Invoke();
+                }
+                else
+                {
+                    Error?.Invoke();
                 }
             }
         }
@@ -147,6 +141,10 @@ public class Player : MonoBehaviour
                     desk.AddPiece(TakePiece());
                     PlacePiece?.Invoke();
                 }
+                else
+                {
+                    Error?.Invoke();
+                }
             }
             else
             {
@@ -155,14 +153,24 @@ public class Player : MonoBehaviour
                     AddPiece(desk.TakePiece());
                     PlacePiece?.Invoke();
                 }
+                else
+                {
+                    Error?.Invoke();
+                }
             }
         }
 
-        if (trashContainer != null && HasPiece &&
-            trashContainer.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
+        if (trashContainer != null && HasPiece)
         {
-            trashContainer.AddPiece(TakePiece());
-            TrashPiece?.Invoke();
+            if (trashContainer.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
+            {
+                trashContainer.AddPiece(TakePiece());
+                TrashPiece?.Invoke();
+            }
+            else
+            {
+                Error?.Invoke();
+            }
         }
         
         if (shelves != null)
@@ -174,6 +182,10 @@ public class Player : MonoBehaviour
                     shelves.AddPiece(TakePiece());
                     PlacePiece?.Invoke();
                 }
+                else
+                {
+                    Error?.Invoke();
+                }
             }
             else
             {
@@ -181,6 +193,10 @@ public class Player : MonoBehaviour
                 {
                     AddPiece(shelves.TakePiece(pieceType));
                     PlacePiece?.Invoke();
+                }
+                else
+                {
+                    Error?.Invoke();
                 }
             }
         }
