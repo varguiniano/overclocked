@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 using Logger = Varguiniano.Core.Runtime.Debug.Logger;
@@ -25,6 +26,12 @@ public class Player : MonoBehaviour
     public PieceManager PieceManager;
 
     public Transform PiecePosition;
+
+    public UnityEvent PlacePiece;
+    public UnityEvent TrashPiece;
+    public UnityEvent RepairComputer;
+    public UnityEvent Error;
+    
     private Piece _currentPiece;
 
     [Header("Runtime Interactions")] public Computer computer;
@@ -60,53 +67,38 @@ public class Player : MonoBehaviour
 
     public void OnBTNGFX()
     {
-        if (CheckIfRepair())
-        {
-            desk.Repair(Desk.RepairType.Smash);
-            animator.SetTrigger(_animatorRepair);
-        }
-        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.GTX)
-        {
-            ExchangePieceProcedure(PieceManager.GTX);
-        }
+        ButtonPressed(PieceManager.GTX);
     }
 
     public void OnBTNCPU()
     {
+        ButtonPressed(PieceManager.CPU);
+    }
+
+    public void OnBTNHDD()
+    {
+        ButtonPressed(PieceManager.HDD);
+    }
+
+    public void OnBTNPS()
+    {
+        ButtonPressed(PieceManager.PS);
+    }
+
+    private void ButtonPressed(PieceType pieceType)
+    {
         if (CheckIfRepair())
         {
             desk.Repair(Desk.RepairType.Smash);
             animator.SetTrigger(_animatorRepair);
         }
-        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.CPU)
+        else if(HasPiece)
         {
-            ExchangePieceProcedure(PieceManager.CPU);
+            ExchangePieceProcedure(_pieceContainer.PieceType);
         }
-    }
-
-    public void OnBTNHDD()
-    {
-        if (CheckIfRepair())
+        else
         {
-            desk.Repair(Desk.RepairType.Hold);
-            animator.SetTrigger(_animatorRepair);
-        }
-        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.HDD)
-        {
-            ExchangePieceProcedure(PieceManager.HDD);
-        }
-    }
-
-    public void OnBTNPS()
-    {
-        if (CheckIfRepair())
-        {
-            desk.Repair(Desk.RepairType.Hold);
-            animator.SetTrigger(_animatorRepair);
-        }
-        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.PS)
-        {
-            ExchangePieceProcedure(PieceManager.PS);
+            ExchangePieceProcedure(pieceType);
         }
     }
 
@@ -119,6 +111,11 @@ public class Player : MonoBehaviour
                 if (computer.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
                 {
                     computer.AddPiece(TakePiece());
+                    RepairComputer?.Invoke();
+                }
+                else
+                {
+                    Error?.Invoke();
                 }
             }
             else
@@ -126,6 +123,11 @@ public class Player : MonoBehaviour
                 if (computer.CanGivePiece(pieceType, computer.IsPieceBroken(pieceType)))
                 {
                     AddPiece(computer.TakePiece(pieceType));
+                    PlacePiece?.Invoke();
+                }
+                else
+                {
+                    Error?.Invoke();
                 }
             }
         }
@@ -137,6 +139,11 @@ public class Player : MonoBehaviour
                 if (desk.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
                 {
                     desk.AddPiece(TakePiece());
+                    PlacePiece?.Invoke();
+                }
+                else
+                {
+                    Error?.Invoke();
                 }
             }
             else
@@ -144,14 +151,26 @@ public class Player : MonoBehaviour
                 if (desk.CanGivePiece(pieceType, desk.PieceBroken))
                 {
                     AddPiece(desk.TakePiece());
+                    PlacePiece?.Invoke();
+                }
+                else
+                {
+                    Error?.Invoke();
                 }
             }
         }
 
-        if (trashContainer != null && HasPiece &&
-            trashContainer.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
+        if (trashContainer != null && HasPiece)
         {
-            trashContainer.AddPiece(TakePiece());
+            if (trashContainer.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
+            {
+                trashContainer.AddPiece(TakePiece());
+                TrashPiece?.Invoke();
+            }
+            else
+            {
+                Error?.Invoke();
+            }
         }
         
         if (shelves != null)
@@ -161,6 +180,11 @@ public class Player : MonoBehaviour
                 if (shelves.CanReceivePiece(pieceType, _pieceContainer.PieceBroken))
                 {
                     shelves.AddPiece(TakePiece());
+                    PlacePiece?.Invoke();
+                }
+                else
+                {
+                    Error?.Invoke();
                 }
             }
             else
@@ -168,6 +192,11 @@ public class Player : MonoBehaviour
                 if (shelves.CanGivePiece(pieceType, shelves.IsPieceBroken(pieceType)))
                 {
                     AddPiece(shelves.TakePiece(pieceType));
+                    PlacePiece?.Invoke();
+                }
+                else
+                {
+                    Error?.Invoke();
                 }
             }
         }
