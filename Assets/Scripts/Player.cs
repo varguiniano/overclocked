@@ -205,7 +205,7 @@ public class Player : MonoBehaviour
 
     private bool CheckIfRepair()
     {
-        return !_pieceContainer.HasPiece && desk != null && desk.PieceBroken;
+        return !_pieceContainer.HasPiece && desk != null && desk.HasPiece && desk.PieceBroken;
     }
 
     public void Update()

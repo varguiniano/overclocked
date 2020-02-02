@@ -10,6 +10,8 @@ public class Desk : MonoBehaviour
 
     public bool PieceBroken => _pieceContainer.PieceBroken;
 
+    public bool HasPiece => _pieceContainer.HasPiece;
+
     public ParticleSystem Particles;
     
     public UnityEvent OnRepair;
