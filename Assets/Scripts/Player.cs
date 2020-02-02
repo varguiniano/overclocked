@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
             desk.Repair(Desk.RepairType.Smash);
             animator.SetTrigger(_animatorRepair);
         }
-        else
+        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.GTX)
         {
             ExchangePieceProcedure(PieceManager.GTX);
         }
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
             desk.Repair(Desk.RepairType.Smash);
             animator.SetTrigger(_animatorRepair);
         }
-        else
+        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.CPU)
         {
             ExchangePieceProcedure(PieceManager.CPU);
         }
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
             desk.Repair(Desk.RepairType.Hold);
             animator.SetTrigger(_animatorRepair);
         }
-        else
+        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.HDD)
         {
             ExchangePieceProcedure(PieceManager.HDD);
         }
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
             desk.Repair(Desk.RepairType.Hold);
             animator.SetTrigger(_animatorRepair);
         }
-        else
+        else if(!HasPiece || _pieceContainer.PieceType == PieceManager.PS)
         {
             ExchangePieceProcedure(PieceManager.PS);
         }
